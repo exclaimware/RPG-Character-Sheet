@@ -39,6 +39,11 @@ var spec_HG = ['Select Sub-Category',"Bodyguard","Marauder","Mercenary"];
 var spec_Smug = ['Select Sub-Category',"Pilot","Scoundrel","Thief"];
 var spec_Tech = ['Select Sub-Category',"Mechanic","Outlaw Tech","Slicer"];
 
+//Motivations
+var primeMotivation = document.getElementById("motivation");
+var pmButton = primeMotivation.getElementsByTagName("button")[0];
+var pmContent = primeMotivation.getElementsByClassName('primeMotivation')[0];
+
 
 // Dice Rolling function based on number of sides of dice (d6, d8, etc...)
 function diceRoll(diceSide) {
@@ -186,7 +191,7 @@ careerSelector.addEventListener("change", chooseCareer, true);
 
 //
 //Select Talents based on available XP
-//Reduce XP based on "cost" number as talents are selected
+//Reduce XP based on "cost" as talents are selected
 //Tiers 2-5 should be disabled until at least one tier1 item is selected. Then enable tier 2. Tiers 3-5 disabled... etc...
 //
 function talentTiers () {
@@ -197,3 +202,100 @@ function talentTiers () {
 	var tier5 = document.getElementById("teir5");
 	
 }
+
+//
+//Choose Motivations
+//FYI: I'm listing Specific Motivations BEFORE the primary motivation because the functions are called inside the prime motivation function
+//Also wondering if I can combine these three secondary motivations into a single function...
+//
+function ambitionMotivation() {
+	diceRoll(100);
+	if (diceResult <= 10 ) {
+		myAmb = "Friendship";
+	} else if (diceResult>=11 && diceResult<=20) {
+		myAmb = "Love";
+	} else if (diceResult>=21 && diceResult<=30) {
+		myAmb = "Freedom";
+	} else if (diceResult>=31 && diceResult<=40) {
+		myAmb = "Fame";
+	} else if (diceResult>=41 && diceResult<=50) {
+		myAmb = "Greed";
+	} else if (diceResult>=51 && diceResult<=60) {
+		myAmb = "Status";
+	} else if (diceResult>=61 && diceResult<=70) {
+		myAmb = "Expertise";
+	} else if (diceResult>=71 && diceResult<=80) {
+		myAmb = "Wanderlust/Novelty";
+	} else if (diceResult>=81 && diceResult<=90) {
+		myAmb = "Power";
+	} else {
+		myAmb = "Religion/Spirituality";
+	}
+}
+function causesMotivation() {
+	diceRoll(100);
+	if (diceResult <= 10 ) {
+		myAmb = "Religion/Spirituality";
+	} else if (diceResult>=11 && diceResult<=20) {
+		myAmb = "The Weak/Charity";
+	} else if (diceResult>=21 && diceResult<=30) {
+		myAmb = "Non-Human Rights";
+	} else if (diceResult>=31 && diceResult<=40) {
+		myAmb = "Local Politics";
+	} else if (diceResult>=41 && diceResult<=50) {
+		myAmb = "Overthrow the Empire";
+	} else if (diceResult>=51 && diceResult<=60) {
+		myAmb = "Crime";
+	} else if (diceResult>=61 && diceResult<=70) {
+		myAmb = "Emancipation";
+	} else if (diceResult>=71 && diceResult<=80) {
+		myAmb = "Droid Rights";
+	} else if (diceResult>=81 && diceResult<=90) {
+		myAmb = "Capitalism";
+	} else {
+		myAmb = "Support the Empire";
+	}
+}
+function relationshipMotivation() {
+	diceRoll(100);
+	if (diceResult <= 10 ) {
+		myAmb = "Place of Origin";
+	} else if (diceResult>=11 && diceResult<=20) {
+		myAmb = "Pet";
+	} else if (diceResult>=21 && diceResult<=30) {
+		myAmb = "Childhood Friend";
+	} else if (diceResult>=31 && diceResult<=40) {
+		myAmb = "Comrades";
+	} else if (diceResult>=41 && diceResult<=50) {
+		myAmb = "Sibling(s)";
+	} else if (diceResult>=51 && diceResult<=60) {
+		myAmb = "Mentor";
+	} else if (diceResult>=61 && diceResult<=70) {
+		myAmb = "Parents";
+	} else if (diceResult>=71 && diceResult<=80) {
+		myAmb = "Extended Family/Clan";
+	} else if (diceResult>=81 && diceResult<=90) {
+		myAmb = "Droid Companion";
+	} else {
+		myAmb = "Former Nemesis";
+	}
+}
+function getMotivations() {
+	diceRoll(10);
+	if (diceResult < 4) {
+		myPrimeMot = "Ambition";
+		ambitionMotivation();
+	} else if (diceResult>3 && diceResult<7) {
+		myPrimeMot = "Cause";
+		causesMotivation();
+	} else if (diceResult>6 && diceResult<10) {
+		myPrimeMot = "Relationship";
+		relationshipMotivation();
+	} else if (diceResult==10) {
+		getMotivations();
+	}
+	
+	pmContent.textContent = myPrimeMot + ": " + myAmb;
+	pmButton.style.display = "none";
+}
+pmButton.addEventListener("click", function(){getMotivations(10)},true);
