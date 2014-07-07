@@ -2,14 +2,10 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<title>index</title>
-	<style>
-	header {float: left; display: inline; box-sizing: border-box; margin: 0 10% 0 0; width: 45%;}
-	section {float: left; display: inline;}
-	</style>
+	<title>JavaScript Experiment: RPG Character Sheet</title>
 </head>
 <body>
-	<header>
+	<section>
 		<div id="obligation">
 			<h1>Obligations</h1>
 			<div class="myObl"></div>
@@ -27,6 +23,21 @@
 			<option value="Twi'leks">Twi'lek</option>
 			<option value="Wookies">Wookie</option>
 		</select></div>
+		<div id="abilityScore">
+			<h1>Species Abilities</h1>
+			<div id="brawn">Brawn: <span></span></div>
+			<div id="agility">Agility: <span></span></div>
+			<div id="intel">Intellect: <span></span></div>
+			<div id="cunning">Cunning: <span></span></div>
+			<div id="will">Willpower: <span></span></div>
+			<div id="pres">Presence: <span></span></div>
+		</div>
+		<div>
+			<h1>Derived Attributes</h1>
+			<div id="woundThresh">Wound Threshold: <span></span></div>
+			<div id="strainThresh">Strain Threshold: <span></span></div>
+			<div id="startingXp">Starting XP: <span></span></div>
+		</div>
 		<div id="careerSelect"><h1>Career</h1>
 		<select id="career">
 			<option value="null">Select One</option>
@@ -41,28 +52,42 @@
 		<select name="subcategory" id="specializtion">
 		 <option value="on">Sub-Category</option>
 		</select></div>
-		<div id="abilityScore"><h1>Species Abilities</h1>
-			
+		<div id="talents">
+			<h1>Talents</h1>
+			<div id="tier1">
+				<input type="checkbox" /><label>A1 (cost: 5)</label>
+				<input type="checkbox" /><label>A2 (cost: 5)</label>
+				<input type="checkbox" /><label>A3 (cost: 5)</label>
+				<input type="checkbox" /><label>A4 (cost: 5)</label>
+			</div>
+			<div id="tier2">
+				<input type="checkbox" /><label>B1 (cost: 10)</label>
+				<input type="checkbox" /><label>B2 (cost: 10)</label>
+				<input type="checkbox" /><label>B3 (cost: 10)</label>
+				<input type="checkbox" /><label>B4 (cost: 10)</label>
+			</div>
+			<div id="tier3">
+				<input type="checkbox" /><label>C1 (cost: 15)</label>
+				<input type="checkbox" /><label>C2 (cost: 15)</label>
+				<input type="checkbox" /><label>C3 (cost: 15)</label>
+				<input type="checkbox" /><label>C4 (cost: 15)</label>
+			</div>
+			<div id="tier4">
+				<input type="checkbox" /><label>D1 (cost: 20)</label>
+				<input type="checkbox" /><label>D2 (cost: 20)</label>
+				<input type="checkbox" /><label>D3 (cost: 20)</label>
+				<input type="checkbox" /><label>D4 (cost: 20)</label>
+			</div>
+			<div id="tier5">
+				<input type="checkbox" /><label>E1 (cost: 25)</label>
+				<input type="checkbox" /><label>E2 (cost: 25)</label>
+				<input type="checkbox" /><label>E3 (cost: 25)</label>
+				<input type="checkbox" /><label>E4 (cost: 25)</label>
+			</div>
 		</div>
-		<div id="woundThresh">Wound Threshold: <span></span></div>
-		<div id="strainThresh">Strain Threshold: <span></span></div>
-		<div id="startingXp">Starting XP: <span></span></div>
-		<div>
-			
-		</div>
-	</header>
-	<section>	
-	
-	<article>
-		<h1>Derived Attributes</h1>
-	</article>
-	<article>
-		<h1>Motivations</h1>
-	</article>
-	<article>
-		<h1>Gear</h1>
-	</article>
-</section>
+		<div><h1>Motivations</h1></div>
+		<div><h1>Gear</h1></div>
+	</section>
 	<script src="char.js"></script>
 	<script src="creatures.js"></script>
 </body>

@@ -10,6 +10,19 @@ var strainThreshold = document.getElementById('strainThresh');
 var strainSpan = strainThreshold.getElementsByTagName('span')[0];
 var stXPThreshold = document.getElementById('startingXp');
 var stXPSpan = stXPThreshold.getElementsByTagName('span')[0];
+//Derived Attributes Section
+var attrBrawn = document.getElementById('brawn');
+var attrBrawnSpan = attrBrawn.getElementsByTagName('span')[0];
+var attrAgil = document.getElementById('agility');
+var attrAgilSpan = attrAgil.getElementsByTagName('span')[0];
+var attrIntel = document.getElementById('intel');
+var attrIntelSpan = attrIntel.getElementsByTagName('span')[0];
+var attrCunn = document.getElementById('cunning');
+var attrCunnSpan = attrCunn.getElementsByTagName('span')[0];
+var attrWill = document.getElementById('will');
+var attrWillSpan = attrWill.getElementsByTagName('span')[0];
+var attrPres = document.getElementById('pres');
+var attrPresSpan = attrPres.getElementsByTagName('span')[0];
 
 
 var finalCareer = null;
@@ -80,21 +93,19 @@ function chooseSpecies() {
 	var speciesChoice = speciesSelector.options[speciesSelector.selectedIndex].text;
 	switch (speciesChoice) {
 	case "Bothan":
-		var character = new Bothan(3,1,2,2,2,2);
-		var args = Array.prototype.slice.call(arguments);
-		console.log(args) // now .join works
+		var character = new Bothan(1,2,2,3,2,2);
 		break;
 	case "Droid":
-		var character = new Droid(1,2,2,2,2,3);
+		var character = new Droid(1,1,1,1,1,1);
 		break;
 	case "Gand":
-		var character = new Gand(3,2,2,2,1,2);
+		var character = new Gand(2,2,2,2,3,1);
 		break;
 	case "Human":
-		var character = new Human(3,1,2,2,2,2);
+		var character = new Human(2,2,2,2,2,2);
 		break;
 	case "Rodian":
-		var character = new Rodian(1,2,2,2,2,3);
+		var character = new Rodian(2,3,2,2,1,2);
 		break;
 	case "Trandoshan":
 		var character = new Trandoshan(3,1,2,2,2,2);
@@ -111,6 +122,12 @@ function chooseSpecies() {
 	woundSpan.textContent = character.woundThres;
 	strainSpan.textContent = character.strainThres;
 	stXPSpan.textContent = character.startXP;
+	attrBrawnSpan.textContent = character.speciesBrawn;
+	attrAgilSpan.textContent = character.speciesAgility;
+	attrIntelSpan.textContent = character.speciesIntel;
+	attrCunnSpan.textContent = character.speciesCunning;
+	attrWillSpan.textContent = character.speciesWill;
+	attrPresSpan.textContent = character.speciesPresense;
 }
 
 function Species(brawn,agility,intel,cunning,will,pres) {
@@ -166,3 +183,17 @@ function chooseCareer() {
 
 speciesSelector.addEventListener("change", chooseSpecies, true);
 careerSelector.addEventListener("change", chooseCareer, true);
+
+//
+//Select Talents based on available XP
+//Reduce XP based on "cost" number as talents are selected
+//Tiers 2-5 should be disabled until at least one tier1 item is selected. Then enable tier 2. Tiers 3-5 disabled... etc...
+//
+function talentTiers () {
+	var tier1 = document.getElementById("teir1");
+	var tier2 = document.getElementById("teir2");
+	var tier3 = document.getElementById("teir3");
+	var tier4 = document.getElementById("teir4");
+	var tier5 = document.getElementById("teir5");
+	
+}
