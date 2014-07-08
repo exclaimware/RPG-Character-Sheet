@@ -299,3 +299,10 @@ function getMotivations() {
 	pmButton.style.display = "none";
 }
 pmButton.addEventListener("click", function(){getMotivations(10)},true);
+
+//
+// Gear - (Coming Soon) 
+// this is just a small sample - I have no intention of including the entire selection of weapons, armor, etc..
+// need to add section for starting money
+// Need to reduce amount of money based on gear selected
+//
