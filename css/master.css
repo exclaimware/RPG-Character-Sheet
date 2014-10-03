@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  font: 87.5% Helvetica, Arial, "MS Trebuchet", sans-serif;
+  color: #333; }
+
+section {
+  width: 87.5%;
+  margin: 0 auto; }
+
+h1 {
+  background-color: #78483a;
+  color: #fff;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  padding: 5px 10px;
+  font-size: 1.5em; }

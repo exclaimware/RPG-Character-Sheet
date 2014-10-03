@@ -1,0 +1,29 @@
+$font-stack:	Helvetica, Arial, "MS Trebuchet", sans-serif
+$primary-color: #333
+$secondary-color: #78483a
+
+=border-radius($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius:    $radius
+	-ms-border-radius:     $radius
+	border-radius:         $radius
+
+html
+	box-sizing: border-box
+
+*, *:before, *:after
+	box-sizing: inherit
+
+body
+	font: 87.5% $font-stack
+	color: $primary-color
+
+section
+	width: 87.5%
+	margin: 0 auto
+h1
+	background-color: $secondary-color
+	color: #fff
+	+border-radius(4px 4px 0 0)
+	padding: 5px 10px
+	font-size: 1.5em
